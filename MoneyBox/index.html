@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <div id = "form_first">
+
+        <form onsubmit="checkPin(); return false">
+
+            <h3>ATM</h3>
+    
+    
+            Enter your pin: <input type="number" id="userInputPin" required>
+    
+            <button>Confirm</button>
+    
+    
+        </form>
+
+    </div>
+
+    
+
+    <h4 id="errorMsg"></h4>
+
+    <div id="homeScreen">
+
+    </div>
+    
+    <div id="currentBalance">
+
+
+
+    
+
+
+    <script>
+
+
+let moneyBox = 30000;
+let cardDailyLimit = 50000;
+let accountBalance = 500000;
+
+
+        function checkPin() {
+
+            const form_first = document.getElementById("form_first")
+            console.log("I am checking pin");
+            let userInputPin = document.querySelector("#userInputPin").value;
+
+
+            if (userInputPin.length < 4) {
+                document.querySelector("#errorMsg").innerHTML = "you must enter 4 digit pin number";
+                console.log("you must enter 4 digit pin number");
+                return;
+            
+
+            }
+
+            if (userInputPin.length > 4) {
+                document.querySelector("#errorMsg").innerHTML = "> 4";
+                console.log("you must enter 4 digit pin number");
+                return;
+
+            }
+
+            if (userInputPin === "5112") {
+                document.querySelector("#errorMsg").innerHTML = "Correct Pin";
+                console.log("Pin Successful");
+
+                document.querySelector("#homeScreen").innerHTML = ` 
+                <form id ="second_form" onsubmit="withdraw(); return false">
+
+                    Enter your amount to withdraw:
+                    <input type="number" id="userInputAmount" required>
+                    <button>WithDraw</button>
+                </form>
+
+                `
+                form_first.style.display = 'none';
+                document.querySelector("#currentBalance").innerHTML = "Account Balance : " + accountBalance;
+
+
+
+                return;
+
+            }
+
+
+            if (userInputPin !== "5112") {
+                document.querySelector("#errorMsg").innerHTML = "Incorrect Pin";
+                console.log("Incorrect Pin");
+
+             return;
+
+            }
+        }
+
+
+        function withdraw ()  {
+
+            let withdrawAmount = document.querySelector("#userInputAmount").value;
+
+            if (withdrawAmount % 500 != 0){
+                document.querySelector("#errorMsg").innerHTML = "Enter Multiple of 5";
+                console.log("Enter multiple of 5");
+                return;
+                
+            }
+
+            if (withdrawAmount > accountBalance){
+                document.querySelector("#errorMsg").innerHTML = "InSufficient Funds in account";
+                console.log("InSufficient Funds in account");
+                return;
+                
+            }
+
+            if (withdrawAmount > moneyBox){
+                document.querySelector("#errorMsg").innerHTML = "InSufficient Funds in ATM Machine";
+                console.log("InSufficient Funds ATM Machine");
+                return;
+                
+            }
+
+            if ((cardDailyLimit - withdrawAmount) < 0){
+                document.querySelector("#errorMsg").innerHTML = "Withdrawal Limit exceeded";
+                console.log("Withdrawal Limit exceeded");
+                return;
+                
+            }
+
+            else{
+                cardDailyLimit -= withdrawAmount;
+                accountBalance -= withdrawAmount;
+                moneyBox -= withdrawAmount;
+                document.querySelector("#errorMsg").innerHTML = "Transaction Successful";
+                console.log("Transaction Successful");
+                second_form.style.display = 'none';
+                document.querySelector("#currentBalance").innerHTML = "Account Balance : " + accountBalance;
+            
+               return;
+            }
+
+
+
+
+
+
+
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
