@@ -40,7 +40,12 @@
 
 
     
+<div id="dailylimit">
 
+    </div>
+        <div id="moneybox">
+
+    </div>
 
     <script>
 
@@ -145,8 +150,8 @@ let accountBalance = 500000;
                 console.log("Transaction Successful");
                 //second_form.style.display = 'none';
                 document.querySelector("#currentBalance").innerHTML = "Account Balance : " + accountBalance;
-                document.querySelector("#currentBalance").innerHTML = "Daily Limit : " + cardDailyLimit;
-                document.querySelector("#currentBalance").innerHTML = "Daily Limit : " + moneyBox;
+                document.querySelector("#dailylimit").innerHTML = "Daily Limit : " + cardDailyLimit;
+                document.querySelector("#moneybox").innerHTML = "Cash in ATM : " + moneyBox;
             
                return;
             }
