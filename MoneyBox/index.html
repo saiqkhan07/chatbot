@@ -35,24 +35,22 @@
 
     </div>
     
-    <div id="currentBalance">
+    <div id="currentBalance">  </div>
+    <div id="dailylimit">  </div>
+    <div id="cashinATM">  </div>
+   
 
 
 
     
-<div id="dailylimit">
 
-    </div>
-        <div id="moneybox">
-
-    </div>
 
     <script>
 
 
-let moneyBox = 300000;
+let moneyBox = 100000;
 let cardDailyLimit = 50000;
-let accountBalance = 400000;
+let accountBalance = 500000;
 
 
         function checkPin() {
@@ -92,6 +90,9 @@ let accountBalance = 400000;
                 `
                 form_first.style.display = 'none';
                 document.querySelector("#currentBalance").innerHTML = "Account Balance : " + accountBalance;
+                document.querySelector("#dailylimit").innerHTML = "Daily Limit : " + cardDailyLimit;
+                document.querySelector("#cashinATM").innerHTML = "Cash in ATM : " + moneyBox;
+            
 
 
 
@@ -151,7 +152,7 @@ let accountBalance = 400000;
                 //second_form.style.display = 'none';
                 document.querySelector("#currentBalance").innerHTML = "Account Balance : " + accountBalance;
                 document.querySelector("#dailylimit").innerHTML = "Daily Limit : " + cardDailyLimit;
-                document.querySelector("#moneybox").innerHTML = "Cash in ATM : " + moneyBox;
+                document.querySelector("#cashinATM").innerHTML = "Cash in ATM : " + moneyBox;
             
                return;
             }
