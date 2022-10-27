@@ -45,7 +45,7 @@
     <script>
 
 
-let moneyBox = 30000;
+let moneyBox = 300000;
 let cardDailyLimit = 50000;
 let accountBalance = 500000;
 
@@ -145,6 +145,8 @@ let accountBalance = 500000;
                 console.log("Transaction Successful");
                 //second_form.style.display = 'none';
                 document.querySelector("#currentBalance").innerHTML = "Account Balance : " + accountBalance;
+                document.querySelector("#currentBalance").innerHTML = "Daily Limit : " + cardDailyLimit;
+                document.querySelector("#currentBalance").innerHTML = "Daily Limit : " + moneyBox;
             
                return;
             }
