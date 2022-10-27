@@ -5,10 +5,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>MoneyBox</title>
 </head>
 
+
+<style>
+    .form_css{
+        text-align: center;
+    }
+
+    
+</style>
+
 <body>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+    <div class="form_css">
 
 
     <div id = "form_first">
@@ -27,17 +46,28 @@
 
     </div>
 
-    
+    <br>
+
 
     <h4 id="errorMsg"></h4>
 
     <div id="homeScreen">
 
     </div>
-    
+
+    <b></b>
+    <br>
+
+    <b><div id="userMsg">  </div> </b>
+
+    <br>
+    <br>
     <div id="currentBalance">  </div>
     <div id="dailylimit">  </div>
     <div id="cashinATM">  </div>
+
+
+</div>
    
 
 
@@ -51,7 +81,7 @@
 let moneyBox = 100000;
 let cardDailyLimit = 50000;
 let accountBalance = 500000;
-
+const errorMsg = document.getElementById("errorMsg")
 
         function checkPin() {
 
@@ -116,38 +146,43 @@ let accountBalance = 500000;
             let withdrawAmount = document.querySelector("#userInputAmount").value;
 
             if (withdrawAmount % 500 != 0){
-                document.querySelector("#errorMsg").innerHTML = "Enter Multiple of 500";
+                errorMsg.style.display = 'none';
+                document.querySelector("#userMsg").innerHTML = "Enter Multiple of 500";
                 console.log("Enter multiple of 5");
                 return;
                 
             }
 
             if (withdrawAmount > accountBalance){
-                document.querySelector("#errorMsg").innerHTML = "InSufficient Funds in account";
+                errorMsg.style.display = 'none';
+                document.querySelector("#userMsg").innerHTML = "InSufficient Funds in account";
                 console.log("InSufficient Funds in account");
                 return;
                 
             }
 
             if (withdrawAmount > moneyBox){
-                document.querySelector("#errorMsg").innerHTML = "InSufficient Funds in ATM Machine";
+                errorMsg.style.display = 'none';
+                document.querySelector("#userMsg").innerHTML = "InSufficient Funds in ATM Machine";
                 console.log("InSufficient Funds ATM Machine");
                 return;
                 
             }
 
             if ((cardDailyLimit - withdrawAmount) < 0){
-                document.querySelector("#errorMsg").innerHTML = "Withdrawal Limit exceeded";
+                errorMsg.style.display = 'none';
+                document.querySelector("#userMsg").innerHTML = "Withdrawal Limit exceeded";
                 console.log("Withdrawal Limit exceeded");
                 return;
                 
             }
 
             else{
+                errorMsg.style.display = 'none';
                 cardDailyLimit -= withdrawAmount;
                 accountBalance -= withdrawAmount;
                 moneyBox -= withdrawAmount;
-                document.querySelector("#errorMsg").innerHTML = "Transaction Successful";
+                document.querySelector("#userMsg").innerHTML = "Transaction Successful";
                 console.log("Transaction Successful");
                 //second_form.style.display = 'none';
                 document.querySelector("#currentBalance").innerHTML = "Account Balance : " + accountBalance;
