@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sort Array</title>
+</head>
+
+<body style="text-align: center;">
+
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+    <form onsubmit="array_input(); return false">
+
+        Enter Comma Separated: <input type="text" id="inputString" required>
+        <br>
+        <br>
+        <button>Submit</button>
+
+
+
+    </form>
+
+
+
+    <p id="inputStringDisplay"> </p>
+    <br>
+    <p id="stringToArray"> </p>
+    <p id="arrayStringToNumbers"> </p>
+    <p id="array"></p>
+    <p id="sortedAscending"></p>
+    <p id=sortedDescending></p>
+
+    <script>
+
+
+
+        function array_input() {
+            let inputString1 = document.querySelector("#inputString").value;
+            document.querySelector("#inputStringDisplay").innerHTML = "Original Input " + inputString1;
+            console.log(inputString1)
+            let stringToArray = inputString1.split(',');
+            let arrayStringToNumbers = stringToArray.map(Number)
+            console.log("Input string: " , inputString1)
+            console.log("String to array: " , stringToArray)
+            console.log("String Array to numbers: " , arrayStringToNumbers);
+
+
+            let arrayToSort = arrayStringToNumbers;
+
+        
+            document.querySelector("#stringToArray").innerHTML = "Input to array: " + JSON.stringify(stringToArray);
+            document.querySelector("#arrayStringToNumbers").innerHTML = "Array String to number: " + JSON.stringify(arrayStringToNumbers)
+
+
+            let arraySortedAscending = sort_arrays_Ascending(arrayToSort);
+            document.querySelector("#sortedAscending").innerHTML = "Ascending:  " + arraySortedAscending;
+            let arraySortedDescending = sort_arrays_Descending(arrayToSort);
+            document.querySelector("#sortedDescending").innerHTML = "Descending: " + arraySortedDescending;
+
+
+
+         
+
+           
+            // 
+
+            console.log(arraySortedAscending)
+
+
+
+            //     document.write("Original array: " + arraySort + "<br>");
+            // // Sorting the array using a single loop
+            // arraySorted = sort_arrays(arraySort);
+
+            // // Printing the sorted array.
+            // document.write("Sorted array: " + arraySorted + "<br>");
+
+
+
+        }
+
+
+
+
+
+
+
+        function sort_arrays_Ascending(arrayAsc) {
+
+            let length = arrayAsc.length
+            for (let i = 0; i < length - 1; i++) {
+
+
+                if (arrayAsc[i] > arrayAsc[i + 1]) {
+
+
+                    let temp = arrayAsc[i];
+                    arrayAsc[i] = arrayAsc[i + 1];
+                    arrayAsc[i + 1] = temp;
+
+                    i = -1;
+                }
+
+            }
+
+
+            return arrayAsc;
+
+
+
+        }
+
+        function sort_arrays_Descending(arrayDsc) {
+
+            let length = arrayDsc.length
+            for (let i = 0; i < length - 1; i++) {
+
+
+                if (arrayDsc[i] < arrayDsc[i + 1]) {
+
+
+                    let temp = arrayDsc[i];
+                    arrayDsc[i] = arrayDsc[i + 1];
+                    arrayDsc[i + 1] = temp;
+
+                    i = -1;
+                }
+
+            }
+
+
+            return arrayDsc;
+
+
+
+        }
+
+
+        // let array23 = [3, 2, 45, 2, 98, 48, 57, 555, 65, 457, 475, 58, 740, 10, 3, 65, 58, 85, 75, 69, 45, 25, 74, 654, 478]
+
+
+
+        // document.write("Original array: " + array23 + "<br>");
+        // // Sorting the array using a single loop
+        // array1 = sort_arrays_Descending(array23);
+
+        // // Printing the sorted array.
+        // document.write("Sorted array: " + array1 + "<br>");
+
+
+
+        // console.log(array1)
+
+
+
+
+
+    </script>
+
+
+
+
+</body>
+
+</html>
