@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication Table</title>
+</head>
+
+
+<style>
+    .form_css {
+        text-align: center;
+    }
+</style>
+
+<body>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+    <div class="form_css">
+
+
+        <div id="form_first">
+
+            <form onsubmit="table(); return false">
+
+                <h3>Table</h3>
+
+
+                Enter Number: <input type="number" id="table_of"  required>
+                <br>
+                Range: <input type="number" id="tableNOT" value="10" required>
+                <br>
+                <button>Submit</button>
+
+
+            </form>
+
+        </div>
+
+        <br>
+        <br>
+
+
+        <div id="result"></div>
+
+        <script>
+
+            function table() {
+                let result = "";
+                let userTable = document.querySelector("#table_of").value;
+                let tableNOT = document.querySelector("#tableNOT").value;
+                if (tableNOT >0){
+                    for (let i = 1; i <= tableNOT; i++) {
+                    result = result + "<p>"+ userTable + " X " + i + " = " + userTable * i+"</p>";
+                    console.log(`${userTable} * ${i} = ${result}`);
+                }
+                document.querySelector("#result").innerHTML = result;
+
+                }
+                else{
+                    document.querySelector("#result").innerHTML = "Invalid input, Value Should be greater than 0";
+
+                }
+            }
+        </script>
+
+
+
+
+</body>
+
+</html>
