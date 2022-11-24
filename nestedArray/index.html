@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2D Array</title>
+</head>
+
+<body style="text-align: center;">
+
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+
+    <br>
+    <p id="array_one"> </p>
+    <p id="array_two"> </p>
+    <p id="array_three"> </p>
+
+    <br>
+    <br>
+    <br>
+    <p id="result"> </p>
+
+
+
+    <script>
+
+
+        let arrayA = [[4, 5, 8], [9, 8, 7], [5, 9, 8]];
+        let arrayB = [[1, 8, 7], [5, 7, 3], [2, 5, 4]];
+        let arrayC = [[], [], []];
+        document.querySelector("#array_one").innerHTML = "Array A : " + JSON.stringify(arrayA);
+        document.querySelector("#array_two").innerHTML = "Array B: " + JSON.stringify(arrayB);
+
+
+
+        for (let i = 0; i < arrayA.length; i++) {
+            for (let j = 0; j < arrayA[i].length; j++) {
+                console.log(i, j)
+
+                document.querySelector("#result").innerHTML += `matrix[${i}][${j}]: `
+                document.querySelector("#result").innerHTML += arrayA[i][j]
+                document.querySelector("#result").innerHTML += "<br />"
+
+            }
+        }
+        for (let i = 0; i < arrayA.length; i++) {
+            for (let j = 0; j < arrayA[i].length; j++) {
+                console.log(i, j)
+
+                arrayC[i][j] = arrayA[i][j] + arrayB[i][j];
+
+            }
+        }
+
+        document.querySelector("#array_three").innerHTML = "Array C: " + JSON.stringify(arrayC);
+
+        console.log(arrayC)
+
+
+
+
+    </script>
+
+
+
+
+</body>
+
+</html>
