@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum </title>
+</head>
+
+<body>
+
+    <h1>Sum</h1>
+
+    <form onsubmit="sum(); return false">
+
+        num1 : <input type="number" id="num1">;
+        <br>
+        num2 : <input type="number" id="num2">;
+        <br>
+        <button type="submit"> Sum </button>
+    </form>
+    <h1 id="sumResult"> </h1>
+    <script>
+        function sum() {
+            let num1 = document.getElementById("num1").value;
+            let num2 = document.getElementById("num2").value;
+            num1 = Number(num1);
+            num2 = Number(num2);
+            let sumresult = num1 + num2;
+            console.log
+            document.getElementById("sumResult").innerHTML = num1 + " + " + num2 + " = " + sumresult;
+
+        }
+
+    </script>
+    <h1>Division</h1>
+    <form onsubmit="division(); return false">
+        num1 : <input type="number" id="num3">
+        <br>
+        num2 : <input type="number" id="num4">
+        <br>
+        <button type="submit"> Division </button>
+    </form>
+    <h1 id="divisionResult"> </h1>
+    <script>
+        function division() {
+            let num1 = document.getElementById("num3").value
+            let num2 = document.getElementById("num4").value
+            num1 = Number(num1);
+            num2 = Number(num2);
+            console.log("num1 " + num1);
+            let divisionresult = num1 / num2;
+            console.log(divisionresult);
+            document.getElementById("divisionResult").innerHTML = num1 + " ÷ " + num2 + " = " + divisionresult;
+        }
+
+    </script>
+
+    <h1>Multiplication</h1>
+    <form onsubmit="mult(); return false">
+        num1 : <input type="number" id="num5">
+        <br>
+        num2 : <input type="number" id="num6">
+        <br>
+        <button type="submit"> Mulitiplication </button>
+    </form>
+    <h1 id="multiresult"> </h1>
+    <script>
+        function mult() {
+            let num1 = document.getElementById("num5").value
+            let num2 = document.getElementById("num6").value
+            num1 = Number(num1);
+            num2 = Number(num2);
+            console.log("num1 " + num1);
+            let multiresult = num1 * num2;
+            console.log(multiresult);
+            document.getElementById("multiresult").innerHTML = num1 + "*" + num2 + " = " + multiresult;
+        }
+
+    </script>
+
+
+    <h1>Subtraction</h1>
+    <form onsubmit="subt(); return false">
+        num1 : <input type="number" id="num7">
+        <br>
+        num2 : <input type="number" id="num8">
+        <br>
+        <button type="submit"> Subtraction </button>
+    </form>
+    <h1 id="subtresult"> </h1>
+    <script>
+        function subt() {
+            let num1 = document.getElementById("num7").value
+            let num2 = document.getElementById("num8").value
+            num1 = Number(num1);
+            num2 = Number(num2);
+            console.log("num1 " + num1);
+            let subtresult = num1 - num2;
+            console.log(subtresult);
+            document.getElementById("subtresult").innerHTML = num1 + " - " + num2 + " = " + subtresult;
+
+
+        }
+
+    </script>
+
+
+
+
+
+
+
+</body>
+
+</html>
